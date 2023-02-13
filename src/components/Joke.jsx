@@ -11,11 +11,13 @@ export default function Joke(props) {
       </div>
       <div className="Joke-text">{props.joke}</div>
 
-      {/* <div className="Joke-smiley">
-        <i className="far fa-smile">
-          <span className="Joke-smiley-text"></span>
-        </i>
-      </div> */}
+      <div className="Joke-smiley">
+        <i
+          class="em em-rolling_on_the_floor_laughing"
+          aria-role="presentation"
+          aria-label="ROLLING ON THE FLOOR LAUGHING"
+        ></i>
+      </div>
     </div>
   );
 }
