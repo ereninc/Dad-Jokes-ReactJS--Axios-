@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/JokeList.css";
+import Joke from "./Joke";
 
 export default function JokeList() {
   const numOfJokes = 10;
@@ -17,7 +18,7 @@ export default function JokeList() {
             },
           })
           .then((res) => {
-            joke = res.data.joke;
+            let joke = { id: res.data.id, joke: res.data.joke, votes: 0 };
             setJokes((jokes) => [...jokes, joke]);
           })
           .catch((err) => console.log(err));
@@ -32,6 +33,13 @@ export default function JokeList() {
   }, []);
 
   console.log(jokes);
+
+  function handleVote(id, delta) {
+    setJokes((jokes) =>
+      jokes.map((j) => (j.id === id ? { ...j, votes: j.votes + delta } : j))
+    );
+  }
+
   return (
     <div className="JokeList">
       <div className="JokeList-sidebar">
@@ -47,8 +55,15 @@ export default function JokeList() {
       </div>
 
       <div className="JokeList-jokes">
-        {jokes.map((joke, i) => (
-          <div key={i}>{joke}</div>
+        {jokes.map((joke) => (
+          <Joke
+            key={joke.id}
+            joke={joke.joke}
+            votes={joke.votes}
+            id={joke.id}
+            upvote={() => handleVote(joke.id, 1)}
+            downvote={() => handleVote(joke.id, -1)}
+          />
         ))}
       </div>
     </div>

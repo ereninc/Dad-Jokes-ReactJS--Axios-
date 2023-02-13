@@ -1,0 +1,4 @@
+.Joke {
+  display: flex;
+  flex-direction: row;
+}
