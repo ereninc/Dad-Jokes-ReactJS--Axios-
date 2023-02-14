@@ -56,6 +56,8 @@ export default function JokeList() {
 
   window.localStorage.setItem("jokes", JSON.stringify(jokes));
 
+  let jokesSorted = jokes.sort((a, b) => b.votes - a.votes);
+
   return (
     <div className="JokeList">
       <div className="JokeList-sidebar">
@@ -90,7 +92,7 @@ export default function JokeList() {
             <h1 className="JokeList-title">Loading...</h1>
           </div>
         ) : (
-          jokes.map((joke) => (
+          jokesSorted.map((joke) => (
             <Joke
               key={joke.id}
               joke={joke.joke}

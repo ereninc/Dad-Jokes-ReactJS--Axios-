@@ -45,6 +45,30 @@
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
+  background: linear-gradient(
+      45deg,
+      rgba(241, 238, 238, 0.8) 0%,
+      rgba(255, 255, 255, 0.2) 50%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(22, 189, 208, 0.8) 100%
+    );
+  background-size: 100% 100%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.JokeList-getmore:hover {
+  color: #fff;
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: inset 0 0 25px #7e57c2;
+}
+
+.JokeList-getmore:active {
+  transform: translateY(0) scale(1);
+  box-shadow: inset 0 0 25px #7e57c2;
 }
 
 .JokeList-jokes {
