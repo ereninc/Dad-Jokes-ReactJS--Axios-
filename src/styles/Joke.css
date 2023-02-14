@@ -45,14 +45,47 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease-in-out;
 }
 
 .fa-arrow-up:hover {
   color: #4caf50;
+  animation-name: move-up;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-up {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-10px);
+  }
 }
 
 .fa-arrow-down:hover {
   color: #f44336;
+  animation-name: move-down;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-down {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(10px);
+  }
 }
 
 .Joke-smiley {
@@ -61,4 +94,12 @@
   color: rgba(0, 0, 0, 0.35);
   border-radius: 50%;
   box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Joke-smiley:hover {
+  color: #f44336;
+  animation-name: move-down;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
 }

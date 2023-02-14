@@ -26,6 +26,14 @@
   margin-bottom: 1rem;
 }
 
+.JokeList-img:hover {
+  animation-name: tilt-n-move-shaking;
+  animation-duration: 0.25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0ms;
+}
+
 .JokeList-title {
   font-size: 2.6rem;
   font-weight: 300;
@@ -99,4 +107,22 @@
   height: 100%;
   width: 100%;
   color: rgb(128, 128, 128);
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
