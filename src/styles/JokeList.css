@@ -51,11 +51,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   align-self: center;
   height: 90%;
   width: 70%;
-  min-width: 200px;
+  min-height: 900px;
   max-width: 1440px;
   background: #fff;
   color: #000;
@@ -67,4 +66,13 @@
 
 .JokeList-jokes::-webkit-scrollbar {
   width: 0;
+}
+
+.JokeList-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: white;
 }
