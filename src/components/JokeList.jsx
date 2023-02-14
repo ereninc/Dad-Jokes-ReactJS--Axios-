@@ -64,14 +64,25 @@ export default function JokeList() {
         </button>
       </div>
 
-      {isLoading ? (
+      {/* {isLoading ? (
         <div className="JokeList-spinner">
           <i className="far fa-8x fa-laugh fa-spin"></i>
           <h1 className="JokeList-title">Loading...</h1>
         </div>
       ) : (
         <div className="JokeList-jokes">
-          {jokes.map((joke) => (
+          {}
+        </div>
+      )} */}
+
+      <div className="JokeList-jokes">
+        {isLoading ? (
+          <div className="JokeList-spinner">
+            <i className="far fa-8x fa-laugh fa-spin"></i>
+            <h1 className="JokeList-title">Loading...</h1>
+          </div>
+        ) : (
+          jokes.map((joke) => (
             <Joke
               key={joke.id}
               joke={joke.joke}
@@ -80,9 +91,9 @@ export default function JokeList() {
               upvote={() => handleVote(joke.id, 1)}
               downvote={() => handleVote(joke.id, -1)}
             />
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 }
