@@ -9,6 +9,8 @@ export default function JokeList() {
     JSON.parse(window.localStorage.getItem("jokes")) || []
   );
   const [isLoading, setIsLoading] = useState(false);
+  const seenJokes = new Set(jokes.map((j) => j.id));
+  console.log(seenJokes);
 
   useEffect(() => {
     if (jokes.length === 0) {
@@ -30,8 +32,14 @@ export default function JokeList() {
       votes: 0,
     };
     setIsLoading(false);
-    console.log("Data fetched!");
-    setJokes((jokes) => [newJoke, ...jokes]);
+
+    if (!seenJokes.has(newJoke.id)) {
+      setJokes((jokes) => [newJoke, ...jokes]);
+    } else {
+      console.log("Duplicate found!");
+      console.log(newJoke.joke);
+    }
+    console.log(jokes);
   }
 
   //   console.log(jokes);
